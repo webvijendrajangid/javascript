@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Color Changes JavaScript Project</title>
+    <style>
+        body, h1, h2 {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: aqua;
+        }
+        .wrap{
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+    
+
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <h1>BMI Calulator Project</h1>
+        <form action="">
+            <div class="group">
+                <label for="height" class="label">Height in CM</label>
+                <input id="height" type="text">
+            </div>
+            <div class="group">
+                <label for="height" class="label"> Weidht in KG</label>
+                <input id="height" type="text">
+            </div>
+            <div class="group">
+                <button>Calculate</button>
+                <div class="results">Results</div>
+            </div>
+        </form>
+        <div class="summary">
+            <h2>BMI Weight Guide</h2>
+            <div class="item">Under Weight = Less then </div>
+            <div class="item">Noraml Range = 18.6 and 24.9</div>
+            <div class="item">Overweight = Greater than 24.9</div>
+        </div>
+    </div>
+</body>
+<script>
+    const form = document.querySelector('form');
+
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+    })
+
+</script>
+</html>

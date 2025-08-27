@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Learning</title>
+    <style>
+        body{
+            background-color: #288cff;
+            color: #fff;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 16px;
+        }
+        .wrap{
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 16px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+   
+        
+</body>
+<script>
+    const h1 = document.createElement('h1')
+    console.log(h1);
+    h1.className = "heading";
+    h1.id = "heading";
+    h1.setAttribute("title", "getting started");
+    const addText = document.createTextNode("JavaScript");
+    h1.appendChild(addText);
+    document.body.appendChild(h1);  
+    
+    
+    
+</script>
+</html>

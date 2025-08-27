@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Color Changes JavaScript Project</title>
+    <style>
+        body, h1, h2 {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: aqua;
+        }
+        .wrap{
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .color_wrap{
+            display: flex;
+            gap: 32px;
+            justify-content: center;
+            align-items: center;
+            margin-top: 24px;
+        }
+        .button{
+            flex: 0 0 calc(25% - 24px);
+            border: 1px solid #000;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 5px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        #gray{
+            background-color: gray;
+        }   
+        #white{
+            background-color: white;
+        }   
+
+        #blue{
+            background-color: blue;
+        }
+
+        #yellow{
+            background-color: yellow;
+        }
+        .bg_output{
+            font-size: 24px;
+            padding: 20px;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <h1>Change the backgorund color</h1>
+        <div class="color_wrap">
+            <div id="gray" class="button">Gray Color</div>
+            <div id="white" class="button">White Color</div>
+            <div id="blue" class="button">Blue Color</div>
+            <div id="yellow" class="button">Yello Color</div>
+        </div>
+        <div class="bg_output">Body color is now applied</div>
+    </div>
+</body>
+<script>
+    const buttons = document.querySelectorAll('.button');
+    const body = document.querySelector('body');
+    const bgOutput  = document.querySelector('.bg_output');
+
+
+    buttons.forEach(function(btn){
+        console.log(btn);
+        btn.addEventListener('click', function(e){
+            // console.log(e.target)
+            if(e.target.id === 'gray') {
+                // body.style.backgroundColor = e.target.id;
+                body.style.backgroundColor = 'gray';
+                bgOutput.innerHTML = 'Body color is Gray applied';
+            }
+
+            if(e.target.id === 'white') {
+                // body.style.backgroundColor = e.target.id
+                body.style.backgroundColor = 'white';
+                bgOutput.innerHTML = 'Body color is White applied';
+            }
+
+            if(e.target.id === 'blue') {
+                // body.style.backgroundColor = e.target.id
+                body.style.backgroundColor = 'blue'
+                bgOutput.innerHTML = 'Body color is Blue applied';
+            }
+            if(e.target.id === 'yellow') {
+                // body.style.backgroundColor = e.target.id
+                body.style.backgroundColor = 'yellow'
+                bgOutput.innerHTML = 'Body color is Yellow applied';
+            }
+        })
+    })
+</script>
+</html>

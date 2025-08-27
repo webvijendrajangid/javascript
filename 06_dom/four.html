@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Learning</title>
+    <style>
+        body{
+            background-color: #288cff;
+            color: #fff;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 16px;
+        }
+        .wrap{
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 16px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="warp">
+        <ul>
+            <li>JavaScript</li>
+        </ul>
+    </div>
+        
+</body>
+<script>
+    function addLanguage (langName) {
+        const li = document.createElement('li');
+        li.innerHTML = `${langName}`;
+        document.querySelector('ul').appendChild(li);
+    }
+
+    addLanguage('Python');
+    addLanguage('C++');
+
+
+    function addOptimizationLang(langName) {
+        const li = document.createElement('li');
+        li.appendChild(document.createTextNode(langName));
+        document.querySelector('ul').appendChild(li);
+    }
+
+    addOptimizationLang('Go');
+    addOptimizationLang('Rust');
+    
+    
+    
+</script>
+</html>
