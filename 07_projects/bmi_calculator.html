@@ -2,23 +2,64 @@
 <html lang="en">
 <head>
     
-    <title>Color Changes JavaScript Project</title>
+    <title>BMI Calculate</title>
     <style>
         body, h1, h2 {
             margin: 0;
-            padding: 0;
+            padding: 0
+        }
+        html,body{
+            height: 100%;
         }
         body {
             font-family: Arial, Helvetica, sans-serif;
-            background-color: aqua;
+            display: flex;
+            align-items: center;
+        }
+        h1 {
+            margin-bottom: 36px;
         }
         .wrap{
-            max-width: 1200px;
+            max-width: 500px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 50px;
+            box-shadow: 0 0 8px rgba(0,0,0,.2);
+            border-radius: 10px;
+            background: #ffa87d;
         }
-    
-
+        form, .summary{
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .summary{
+            padding-top: 16px;
+        }
+        .group {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        input{
+            border: 1px solid #ccc;
+            height: 36px;
+            border-radius: 5px;
+        }
+        input:focus{
+            outline: none;
+        }
+        button {
+            width: 100%;
+            background: #000;
+            height: 50px;
+            color: #fff;
+            border: 0;
+            border-radius: 5px;
+            box-shadow: 0 0 6px rgba(0,0,0,.2);
+            font-weight: bold;
+            font-size: 18px;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -30,12 +71,16 @@
                 <input id="height" type="text">
             </div>
             <div class="group">
-                <label for="height" class="label"> Weidht in KG</label>
-                <input id="height" type="text">
+                <label for="weight" class="label"> Wight in KG</label>
+                <input id="weight" type="text">
             </div>
             <div class="group">
                 <button>Calculate</button>
-                <div class="results">Results</div>
+            </div>
+            <div class="group">
+                <h2>
+                    <div id="results">Results</div>
+                </h2>
             </div>
         </form>
         <div class="summary">
@@ -51,8 +96,20 @@
 
     form.addEventListener('submit', function(e) {
         e.preventDefault();
+        const inputHeight = parseInt(document.querySelector("#height").value);
+        const inputWeight = parseInt(document.querySelector("#weight").value);
+        const results = document.querySelector("#results");
 
-    })
-
+        if(inputHeight ==='' || inputHeight < 0 || isNaN(inputHeight)) {
+            results.innerHTML = `Please give valid height: ${inputHeight}`;
+        } else if(inputWeight === '' || inputWeight < 0 || isNaN(inputWeight)){
+            results.innerHTML = `Please give valid Weight: ${inputWeight}`
+        } else {
+            const bmi =  (inputWeight / (inputHeight*inputHeight/10000)).toFixed(2);
+            // show the result
+            results.innerHTML = `<span>Result is: ${bmi}</span>`;
+        }
+        console.log("Results", results);
+    });
 </script>
 </html>
