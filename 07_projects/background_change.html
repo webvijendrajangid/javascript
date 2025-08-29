@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background Change the Box</title>
+    <style>
+        #colorBox{
+            width: 200px;
+            height: 200px;
+            border: 1px solid #ccc;
+            margin:16px 0;
+        }
+        button {
+            background: #000;
+            height: 50px;
+            color: #fff;
+            border: 0;
+            border-radius: 5px;
+            box-shadow: 0 0 6px rgba(0,0,0,.2);
+            font-size: 16px;
+            padding: 0 16px;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Change Background Color Min Project</h1>
+    <!-- <div id="colorBox">Color Change Box</div> -->
+    <button id="start">Start Background Color Change</button>
+    <button id="stop">Stop Backgorund Change</button>
+</body>
+<script>
+    let intervalId 
+    const rendomColor =  function() {
+        const hex = '0123456789ABCDEF'
+        let color = "#";
+
+        for (let i = 0; i < 6; i++) {
+            color += hex[Math.floor(Math.random() * 16)]
+        }
+        return color;
+    }
+    // console.log(rendomColor());
+
+    const startChangingColor =  function(){
+        const changeBgColor = function(){
+            document.body.style.backgroundColor = rendomColor();
+        }
+       
+        if(!intervalId) {
+            intervalId = setInterval(changeBgColor, 1000);
+        }
+    };
+    const stopChangingColor =  function(){
+        clearInterval(intervalId)
+        intervalId = null;
+    };
+
+
+    document.querySelector("#start").addEventListener('click', startChangingColor)
+    document.querySelector("#stop").addEventListener('click', stopChangingColor)
+
+
+
+
+    // const sayDate = function(str) {
+    //     console.log(str, Date.now());
+    // }
+
+    // const intervalId = setInterval(sayDate, 1000, 'Hello Guys');
+
+    // document.querySelector("#stop").addEventListener('click', function(){
+    //     clearInterval(intervalId);
+    // })
+
+
+</script>
+</html>

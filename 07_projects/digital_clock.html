@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock Javascrip</title>
+    <style>
+        body, h1, h2 {
+            margin: 0;
+            padding: 0
+        }
+        html,body{
+            height: 100%;
+        }
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        h1 {
+            margin-bottom: 36px;
+        }
+        .wrap{
+            max-width: 500px;
+            margin: 0 auto;
+            
+        }
+        .digital{
+            padding: 16px;
+            box-shadow: 0 0 8px rgba(0,0,0,.2);
+            border-radius: 10px;
+            background: #ffa87d;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="wrap">
+        <h1>Local Time</h1>
+        <div id="clock" class="digital"></div>
+    </div>
+</body>
+<script>
+    const digitalClock = document.getElementById('clock');
+
+    
+    setInterval(function(){
+        let date = new Date();
+        digitalClock.innerHTML = date.toLocaleTimeString();
+    }, 1000)
+
+    
+</script>
+</html>

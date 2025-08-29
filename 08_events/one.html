@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="wrap">
+        <h1>Amazing Images</h1>
+        <ul id="images">
+            <li>
+                <img id="img1" src="img/img1.png" alt="img1">
+            </li>
+            <li>
+                <img id="img2" src="img/img2.png" alt="img2">
+            </li>
+            <li>
+                <img id="img3" src="img/img1.png" alt="img1">
+            </li>
+            <li>
+                <img id="img4" src="img/img2.png" alt="img2">
+            </li>
+            <li>
+                <img id="img5" src="img/img1.png" alt="img1">
+            </li>
+            <li>
+                <img id="img6" src="img/img2.png" alt="img2">
+            </li>
+            <li>
+                <a href="#" id="google">Google</a>
+            </li>
+        </ul>
+    </div>
+</body>
+<script>
+     /* document.getElementById("img1").onclick = function(){
+        alert("Image One");
+     }; */
+
+     // ==== Event list ===
+    // type, timestamp, defaultPrevented
+    // target, toElement, srcElement, currentTarget
+    // clientX, clientY, screenX, screenY
+    // altkey, ctrlkey, shiftkey, keyCode,
+
+
+    //  Change the caputuring -- check in chrome console for diffent of the squence clicked
+    // document.getElementById('images').addEventListener('click', function(e){
+    //     console.log("Clicked on ul");
+    //  }, true)    // false and true is event propagation 
+
+    //  document.getElementById('img2').addEventListener('click', function(e){
+    //     console.log("clicke on Img2");
+    //  }, true) 
+     
+     
+
+    //  Event propagationg -- check in chrome console for diffent of the squence clicked
+    /* document.getElementById('images').addEventListener('click', function(e){
+        console.log("Clicked on ul");
+    }, false) 
+
+    document.getElementById('img2').addEventListener('click', function(e){
+        console.log("clicke on Img2");
+        e.stopPropagation(); // its click only img and do click the ul above click function
+    }, false) 
+
+    document.getElementById('google').addEventListener('click', function(e){
+        e.preventDefault();
+        e.stopPropagation();
+        console.log("Clicked on Google Button");
+    }) */
+
+   document.querySelector("#images").addEventListener('click', function(e) {
+    console.log(e.target.tagName);
+    if(e.target.tagName === 'IMG'){
+        // console.log(e.target.id)
+        let removeIt =  e.target.parentNode;
+        removeIt.remove();
+
+    }
+    // removeIt.parent.removeChild(removeIt);
+    
+   })
+</script>
+</html>
